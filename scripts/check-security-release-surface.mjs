@@ -6,6 +6,7 @@ const root = process.cwd();
 const sparkCliRef = "spark-cli-public-installer-2026-06-03-r24-v2";
 const sparkCliCommit = "fc49c16a97ac5b69aaf27daea55918a40a28ad0c";
 const releaseName = "spark-cli-public-installer-2026-06-03-r24-v2";
+const JSON_OUT = process.argv.includes("--json");
 
 function fail(message) {
   console.error(`security release surface check failed: ${message}`);
