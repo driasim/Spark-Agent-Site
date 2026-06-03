@@ -25,6 +25,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const nginxPath = path.join(root, "nginx.conf");
 const nginx = fs.readFileSync(nginxPath, "utf8");
+const JSON_OUT = process.argv.includes("--json");
 
 // Executable script `type` values. Anything else (data blocks) is skipped.
 const EXECUTABLE_TYPES = new Set([
