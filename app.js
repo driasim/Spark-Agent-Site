@@ -2,6 +2,11 @@
    SPARK AGENT · agent.sparkswarm.ai · interactions
    ══════════════════════════════════════════════════════════════ */
 
+if (typeof process !== "undefined" && process.argv && process.argv.includes("--version")) {
+  console.log("Spark Agent Site v1.0.0");
+  process.exit(0);
+}
+
 (() => {
   const $  = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
