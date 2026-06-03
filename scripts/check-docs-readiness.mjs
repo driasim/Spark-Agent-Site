@@ -5,6 +5,7 @@ const root = process.cwd();
 const docsRoot = path.join(root, "docs");
 const cssVersion = "20260501-provider-roles";
 const feedbackTemplate = "docs-feedback.yml";
+const JSON_OUT = process.argv.includes("--json");
 
 function fail(message) {
   console.error(`docs readiness check failed: ${message}`);
