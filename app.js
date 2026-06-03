@@ -2,6 +2,11 @@
    SPARK AGENT · agent.sparkswarm.ai · interactions
    ══════════════════════════════════════════════════════════════ */
 
+if (typeof process !== "undefined" && process.argv && process.argv.includes("--version")) {
+  console.log("Spark Agent Site v1.0.0");
+  process.exit(0);
+}
+
 (() => {
   const $  = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
@@ -990,8 +995,9 @@
      THEME TOGGLE
      ══════════════════════════════════════════════════════════════ */
   const themeBtn = $('#theme-toggle');
+  const ALLOWED_THEMES = new Set(['light', 'dark']);
   const saved = localStorage.getItem('spark-theme');
-  if (saved) document.documentElement.dataset.theme = saved;
+  if (saved && ALLOWED_THEMES.has(saved)) document.documentElement.dataset.theme = saved;
   themeBtn?.addEventListener('click', () => {
     const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
     document.documentElement.dataset.theme = next;
