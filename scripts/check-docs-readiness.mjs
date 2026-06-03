@@ -5,6 +5,7 @@ const root = process.cwd();
 const docsRoot = path.join(root, "docs");
 const cssVersion = "20260501-provider-roles";
 const feedbackTemplate = "docs-feedback.yml";
+const JSON_OUT = process.argv.includes("--json");
 
 function fail(message) {
   console.error(`docs readiness check failed: ${message}`);
@@ -108,4 +109,4 @@ for (const relPath of ["docs/commands.md", "docs/providers.md", "docs/railway-vp
   assert(markdown.includes("Human page:"), `${relPath} should point agents back to the human page`);
 }
 
-console.log(`docs readiness ok: ${pages.length} pages, ${internalLinks.size} internal links`);
+console.log(`docs readiness ok: ${pages.length} pages, ${internalLinks.size} internal links. Next: run \`npm run build\` to continue.`);
